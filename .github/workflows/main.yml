@@ -3,7 +3,7 @@ name: 'yane'
 on:
   push:
   schedule:
-    - cron: '0/30 * * * *'
+    - cron: '0 22 * * *'
 
 jobs:
   stale:
