@@ -1,9 +1,9 @@
-name: 'yane'
+name: 'Nia'
 
 on:
   push:
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '*/15 * * * *'
 
 jobs:
   stale:
@@ -22,7 +22,7 @@ jobs:
         run: |
           git diff
           git config --global user.email "393507488@qq.com"
-          git config --global user.name "yane"
+          git config --global user.name "Nia.Peng"
           git add README.md
           git commit -m "Github Action Auto Updated"
           git push
