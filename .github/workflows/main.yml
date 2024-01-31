@@ -25,4 +25,4 @@ jobs:
           git config --global user.name "Nia.Peng"
           git add README.md
           git commit -m "Github Action Auto Updated"
-          git push origin main
+          git push main
