@@ -18,8 +18,25 @@ Android 工程师。多年时间花在 Kotlin、Jetpack Compose 与系统层 API
 - 零反射、零 DI 框架依赖、3 模块互不依赖
 - 10 个 instrumented test 在真 AndroidKeyStore 上端到端通过
 - OnePlus 9 / OxygenOS / Android 14 真机验证三模块全部生效
-- 想了解设计取舍？读 [PORTFOLIO.md](https://github.com/visiongem/android-secure-toolkit/blob/main/docs/PORTFOLIO.md)（招聘方/客户精读版）
-- 想了解未来规划？读 [FUTURE_REPOS.md](https://github.com/visiongem/android-secure-toolkit/blob/main/docs/FUTURE_REPOS.md)（下一个仓库的 idea backlog）
+- 已发版 JitPack v0.1.0：[各模块详细文档](https://github.com/visiongem/android-secure-toolkit/tree/main/docs)
+
+#### 📨 [android-message-pipeline](https://github.com/visiongem/android-message-pipeline)
+
+"小通道传大消息"的统一抽象——BLE GATT (MTU 23) / USB Bulk / 串口 / 二维码 / Socket 等任何受 MTU 限制的通道，都能用同一套分片 + 重组 + 异步分发协议。
+
+- 4 个核心抽象：`Codec` / `Chunker` / `Transport` / `PipelineDispatcher`
+- 默认实现含 `[index:total:hash:groupId]` 头格式分片协议（顺序无关 + 多组并发）
+- 双线程异步管道（IO 与业务解耦）+ 7 个单元测试覆盖核心逻辑
+
+#### 🧰 [android-kotlin-utils](https://github.com/visiongem/android-kotlin-utils)
+
+自用 Android 扩展函数集——金融场景常用 + Compose 时代痛点两类。
+
+- `numeric`：金额安全转换（拒绝静默截断）+ Hex 编解码
+- `string`：敏感字段 mask（手机号 / 邮箱 / 身份证）+ 内存安全 zeroize
+- `compose`：防抖点击 Modifier + 条件式 Modifier
+- `lifecycle`：生命周期感知 Flow 收集（避免内存泄漏）
+- 23 个单元测试全绿
 
 ---
 
@@ -27,8 +44,9 @@ Android 工程师。多年时间花在 Kotlin、Jetpack Compose 与系统层 API
 
 - **Android 平台层精细控制** — Keystore / BiometricPrompt / FLAG_SECURE / WindowManager 等系统 API 的非默认用法
 - **密码学工程** — 让 AES-GCM / KDF / IV 不被误用，是工程素养而非数学难题
-- **跨传输介质的统一抽象** — BLE / USB / 串口 / 二维码 的"小通道传大消息"问题（计划开第二个仓库）
+- **跨传输介质的统一抽象** — BLE / USB / 串口 / 二维码 的"小通道传大消息"问题
 - **API 设计的反直觉权衡** — 默认安静失败 / 配置不可调弱 / 不绑架 DI 框架
+- **长期项目的技术债清理** — Java→Kotlin / RxJava→Coroutine / ViewBinding→Compose / M2→M3 等大规模平滑迁移
 
 ---
 
